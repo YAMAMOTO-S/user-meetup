@@ -8,7 +8,7 @@
          class="grey lighten-2"
          max-height="400">
          <div  class="title">
-            <h1>Let's Create!</h1>
+            <h1 class="font-weight-black">Let's Create!</h1>
          </div>
          <div  class="firstbtn">
             <v-btn>CLICK HERE !!</v-btn>

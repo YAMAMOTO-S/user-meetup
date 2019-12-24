@@ -1,17 +1,15 @@
 <template>
   <v-app>
     <div class="App">
-      <v-toolbar>
-      
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-toolbar-title>
-
-      </v-toolbar-title>
-
+      <v-toolbar class="elevation-0" extended extension-height="" prominent color="blue lighten-3">
+      <div>
+        <h1 class="test">User-Meetup</h1>
+      </div>
+        <!-- <v-btn text>User-Meetup</v-btn> -->
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
-        <v-btn text :to='item.link'>{{ item.title }}</v-btn>
+        <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -41,8 +39,20 @@ export default {
         { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
         { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
         { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}
-      ]
+      ],
+      homelink: '/'
     }
   }
 };
 </script>
+
+<style>
+.test{
+  margin-top: 20%;
+  color: #EEF9FF
+}
+v-toolbar{
+  color: #AAD6EC
+}
+
+</style>
