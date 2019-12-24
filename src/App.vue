@@ -1,60 +1,48 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <div class="App">
+      <v-toolbar>
+      
+      <v-toolbar-title>Title</v-toolbar-title>
+      <v-toolbar-title>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+      <v-toolbar-items v-for="item in menuItems" :key="item.title">
+        <v-btn text :to='item.link'>{{ item.title }}</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <main>
+      <router-view></router-view>
+    </main>
+
+    </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+   
   },
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return{
+      menuItems: [
+        { icon: 'mdi-face', title: 'Meetups', link: '/meetups'},
+        { icon: 'mdi-account-box-multiple', title: 'create', link: '/create'},
+        {title: 'chat', link:'/chat'},
+        { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
+        { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
+        { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}
+      ]
+    }
+  }
 };
 </script>
