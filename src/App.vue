@@ -1,22 +1,22 @@
 <template>
   <v-app>
     <div class="App">
-      <v-toolbar class="elevation-0" extended extension-height="" prominent color="blue lighten-3">
-      <div>
-        <h1 class="test">User-Meetup</h1>
-      </div>
-        <!-- <v-btn text>User-Meetup</v-btn> -->
-      <v-spacer></v-spacer>
 
-      <v-toolbar-items v-for="item in menuItems" :key="item.title">
-        <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
-      </v-toolbar-items>
+    <v-toolbar class="elevation-0" extended extension-height="" prominent color="blue lighten-3">
+          <div>
+            <h1 class="test">User-Meetup</h1>
+          </div>
+            <!-- <v-btn text>User-Meetup</v-btn> -->
+          <v-spacer></v-spacer>
+
+          <v-toolbar-items v-for="item in menuItems" :key="item.title">
+            <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
+          </v-toolbar-items>
     </v-toolbar>
-
+       
     <main>
       <router-view></router-view>
     </main>
-
     </div>
   </v-app>
 </template>
@@ -48,7 +48,8 @@ export default {
 
 <style>
 .test{
-  margin-top: 20%;
+  margin-top: 17%;
+  margin-left: 50px;
   color: #EEF9FF
 }
 v-toolbar{
