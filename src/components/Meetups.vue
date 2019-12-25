@@ -1,12 +1,45 @@
 <template>
-   <v-container>
-      <v-row>
-         <v-card v-for="meetup in meetups" :key="meetup.id">
+  <v-container>
+         <v-row>
+        <v-col>
+            <v-card
+               class="mx-auto mb-7"
+               max-width="800"
+               v-for="meetup in meetups" :key="meetup.id"
+            >
+               <v-img
+                  class="white--text align-end"
+                  height="300px"
+                  :src="meetup.image"
+               >
                   <v-card-title>{{ meetup.title }}</v-card-title>
-                  <h2>test</h2>
+               </v-img>
+
+               <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
+                  <div>{{ meetup.description }}</div>
+                  <div>Created user:  {{ meetup.user}}</div>
+                  <div>location: {{ meetup.location}}</div>
+               </v-card-text>
+
+               <v-card-actions>
+                  <!-- 個別のページに行く -->
+                  <!-- <v-btn depressed :to="{ name: 'Meetup', params: {meetup_slug: meetup.slug}}">
+                     View Detail
+                  </v-btn>
+                  <! 削除 -->
+                  <!-- <v-btn depressed @click="deleteMeetup(meetup.id)">
+                     <v-icon>mdi-delete</v-icon>
+                  </v-btn> -->
+                  <!-- 編集 -->
+                  <!-- <v-btn depressed :to="{ name: 'EditMeetup', params: {meetup_slug: meetup.slug}}">
+                     <v-icon>mdi-pencil</v-icon>
+                  </v-btn> --> -->
+                  
+               </v-card-actions>
             </v-card>
+         </v-col>
       </v-row>
-   </v-container>
+  </v-container>
 </template>
 
 <script>

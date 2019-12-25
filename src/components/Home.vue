@@ -17,9 +17,9 @@
             </v-container>
          </v-img>
       </v-col>
-
+    </v-row>
 <!-- ここからMeetup一覧 -->
-      <v-col cols="12" md="9">
+      <!-- <v-col  md="4">
          <div v-for="meetup in meetups" :key="meetup.id">
             <h2>{{ meetup.title }}</h2>
             <v-img
@@ -29,8 +29,9 @@
                >
                </v-img>
          </div>
-      </v-col>
-    </v-row>
+      </v-col> -->
+
+      
     
 
 
