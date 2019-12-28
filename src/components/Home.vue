@@ -50,7 +50,7 @@ export default {
       }
    },
    created(){
-      this.$store.dispatch('getMeetups')
+      this.$store.dispatch('bindmeetups')
    },
    computed: {
       meetups() {
