@@ -67,9 +67,14 @@ export default {
       }
    },
    methods: {
-   // User登録
+   // Module(auth.js)から呼び出してUser登録
       handleRegister(){
          this.$store.dispatch('auth/singUp', this.form)
+            .then(() => {
+               this.$router.push({ name: "Login"})
+            }).catch(err => {
+               alert(err)
+            })
       }
    }
 }
