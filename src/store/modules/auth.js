@@ -2,23 +2,22 @@ import * as firebase from 'firebase'
 
 
 
-// eslint-disable-next-line no-unused-vars
 const actions = {
-   singUp(context, { email, password }) {
-      debugger
+   
+   singUp(context, {email, password}) {
       return firebase.auth().createUserWithEmailAndPassword(email, password)
-         .then(user => {
-            debugger
-            return user
+         .then(({ user }) => {
+         return user
          }).catch(err => {
-            console.log(err)
-            debugger
+            const message = err.message
+            return Promise.reject(message)
       })
    }
-};
-
-
-export default {
-   namespaced: true,
-   actions
 }
+            
+
+
+   export default {
+      namespaced: true,
+      actions
+   }
