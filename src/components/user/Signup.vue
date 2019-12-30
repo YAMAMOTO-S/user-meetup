@@ -10,20 +10,32 @@
                </v-img>
                <h2 class="title">Signup</h2>
 
-               <form @submit.prevent="signup">
-                  <p class="red--text text--lighten-1 title" center v-if="feedback">{{ feedback }}</p>
-                  <v-text-field label="Email">
+               <figure class="avatar">
+                     <img src="https://placehold.it/128x128">
+                  </figure>
+
+               <form @submit.prevent="handleRegister">
+                  <p class="red--text text--lighten-1 title" center v-if="form.feedback">{{ feedback }}</p>
+                  <v-text-field label="Email" name="email" required 
+                  v-model="form.email">
                   </v-text-field>
-                  <v-text-field label="Password">
+                  <v-text-field label="Password" name="password" required 
+                  v-model="form.password">
                   </v-text-field>
-                  <v-text-field label="User name">
+                  <v-text-field label="Password Confirmation" name="passwordComfirmation" 
+                  required v-model="form.passwordComfirmation">
+                  </v-text-field>
+                  <v-text-field label="User name" name="name" required 
+                  v-model="form.name">
+                  </v-text-field>
+                  <v-text-field label="Avatar Url" name="avatar" required 
+                  v-model="form.avatar">
                   </v-text-field>
                   
                   <!-- 全て入れないとボタンが浮き出ないようにしている。 -->
                   <div class="subbtn">
                      <v-btn :disabled="!formIsValid" type="submit">Create</v-btn>
                   </div>
-
                </form>
             </v-card>
          </v-col>
@@ -36,10 +48,14 @@
 export default {
    data(){
       return {
-         email: null,
-         password: null,
-         name: null,
-         feedback: null,
+         form: {
+            email: null,
+            password: null,
+            passwordComfirmation: '',
+            name: null,
+            feedback: null,
+            avatar: '',
+         },
          imageUrl: 'https://image.freepik.com/free-vector/social-media-refer-friend-concept_23-2148260460.jpg',
       }
    },
@@ -52,7 +68,9 @@ export default {
    },
    methods: {
    // User登録
-   
+      handleRegister(){
+         this.$store.dispatch('auth/singUp', this.form)
+      }
    }
 }
 </script>
@@ -69,7 +87,10 @@ export default {
 }
 
 form {
-   margin: 100px;
+   margin-top: 50px;
+   margin-left: 100px;
+   margin-right: 100px;
+   margin-bottom: 100px;
 }
 .test {
    border-color: black
@@ -77,6 +98,17 @@ form {
 
 .datetitle{
      color: #898989;
-     margin-bottom: 30px
+     margin-bottom: 30p
+  }
+
+  .avatar {
+    text-align: center;
+  }
+  .avatar img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
   }
 </style>
