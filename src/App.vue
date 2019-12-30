@@ -38,7 +38,7 @@ export default {
         {title: 'chat', link:'/chat'},
         { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
         { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
-        { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}
+        { icon: 'mdi-account-card-details-outline', title: 'Login', link: '/login'}
       ],
       homelink: '/'
     }

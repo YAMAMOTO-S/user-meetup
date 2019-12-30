@@ -21,9 +21,6 @@ export default new Vuex.Store({
     ...vuexfireMutations,
   },
   actions: {
-    test() {
-      alert('Hello Vuex')
-    },
     bindmeetups: firestoreAction(({
       bindFirestoreRef
     }) => {
