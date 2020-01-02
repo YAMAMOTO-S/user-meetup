@@ -71,11 +71,18 @@ export default {
       handleRegister(){
          this.$store.dispatch('auth/singUp', this.form)
             .then(() => {
-               this.$router.push({ name: "Login"})
+               this.$router.push({ name: "login"})
+               this.$toasted.show("Success !!", { 
+                  theme: "toasted-primary",
+                  position: "top-center", 
+                  duration : 5000
+               });
             }).catch(err => {
-               alert(err)
+               this.$toasted.error(err, { duration: 5000,
+               position: "top-center"})
             })
-      }
+      },
+
    }
 }
 </script>

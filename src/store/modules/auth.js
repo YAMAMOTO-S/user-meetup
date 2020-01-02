@@ -4,6 +4,7 @@ import * as firebase from 'firebase'
 
 const actions = {
    
+   // eslint-disable-next-line no-unused-vars
    singUp(context, {email, password}) {
       return firebase.auth().createUserWithEmailAndPassword(email, password)
          .then(({ user }) => {
