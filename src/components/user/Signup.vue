@@ -70,9 +70,18 @@ export default {
    // Module(auth.js)から呼び出してUser登録
       handleRegister(){
          this.$store.dispatch('auth/singUp', this.form)
-            .then(() => {
+            .then(async user => {
+               await this.$store
+                  .dispatch('auth/createProfile', 
+                     {uid: user.uid, 
+                      userProfile: {
+                         fullName: this.form.name,
+                         avatar: this.form.avatar,
+                         user: user.uid
+                      }})
+
                this.$router.push({ name: "login"})
-               this.$toasted.show("Success !!", { 
+               this.$toasted.show("Success!!", { 
                   theme: "toasted-primary",
                   position: "top-center", 
                   duration : 5000

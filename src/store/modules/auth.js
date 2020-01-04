@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+import { db } from '@/db'
 
 
 
@@ -13,7 +14,13 @@ const actions = {
             const message = err.message
             return Promise.reject(message)
       })
-   }
+   },
+   createProfile(_, {uid, userProfile}) {
+      return db
+         // uid, userProfileをProfileに入れる
+         .collection('profiles')
+         .doc(uid).set(userProfile)
+   },
 }
             
 
