@@ -18,6 +18,7 @@ export default new Vuex.Store({
       state.meetups = meetups
     },
     ...vuexfireMutations,
+    
   },
   actions: {
     bindmeetups: firestoreAction(({

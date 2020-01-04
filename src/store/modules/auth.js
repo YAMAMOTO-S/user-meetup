@@ -2,9 +2,12 @@ import * as firebase from 'firebase'
 import { db } from '@/db'
 
 
-
+const getters = {
+   isAuthenticated(state) {
+      return !!state.user
+   }
+}
 const actions = {
-   
    // eslint-disable-next-line no-unused-vars
    singUp(context, {email, password}) {
       return firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -22,10 +25,18 @@ const actions = {
          .doc(uid).set(userProfile)
    },
 }
-            
-
-
-   export default {
-      namespaced: true,
-      actions
+const mutations = {
+   setAuthUser(state, user) {
+      state.user = user
    }
+}
+
+export default {
+   namespaced: true,
+   state: {
+      user: null
+   },
+   actions,
+   mutations,
+   getters
+}

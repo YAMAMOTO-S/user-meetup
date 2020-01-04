@@ -8,10 +8,18 @@
           </div>
             <!-- <v-btn text>User-Meetup</v-btn> -->
           <v-spacer></v-spacer>
-
+<!-- ユーザーが認証されていない場合 -->
           <v-toolbar-items v-for="item in menuItems" :key="item.title">
             <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
           </v-toolbar-items>
+<!-- ユーザーが認証済みの場合 -->
+          <div v-if="isAuthenticated">
+            <v-toolbar-items>{{user.email}}</v-toolbar-items>
+            <v-toolbar-items v-for="item in menuItems" :key="item.title">
+              <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
+            </v-toolbar-items>
+          </div>
+          
     </v-toolbar>
        
     <main>
@@ -26,10 +34,6 @@
 export default {
   name: 'App',
 
-  components: {
-   
-  },
-
   data(){
     return{
       menuItems: [
@@ -41,6 +45,14 @@ export default {
         { icon: 'mdi-account-card-details-outline', title: 'Login', link: '/login'}
       ],
       homelink: '/'
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.user
+    },
+   isAuthenticated() {
+      return this.$store.getters['auth/isAuthenticated']
     }
   }
 };
