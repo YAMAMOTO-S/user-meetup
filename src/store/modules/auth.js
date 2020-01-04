@@ -24,6 +24,9 @@ const actions = {
          .collection('profiles')
          .doc(uid).set(userProfile)
    },
+   login(_, { email, password }) {
+      return firebase.auth().signInWithEmailAndPassword(email, password)
+   }
 }
 const mutations = {
    setAuthUser(state, user) {

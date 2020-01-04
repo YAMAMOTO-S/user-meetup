@@ -12,13 +12,7 @@
           <v-toolbar-items v-for="item in menuItems" :key="item.title">
             <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
           </v-toolbar-items>
-<!-- ユーザーが認証済みの場合 -->
-          <div v-if="isAuthenticated">
-            <v-toolbar-items>{{user.email}}</v-toolbar-items>
-            <v-toolbar-items v-for="item in menuItems" :key="item.title">
-              <v-btn text :to='item.link' color="#EEF9FF">{{ item.title }}</v-btn>
-            </v-toolbar-items>
-          </div>
+          <p>{{user.email}}</p>
           
     </v-toolbar>
        

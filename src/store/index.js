@@ -7,19 +7,22 @@ import auth from './modules/auth'
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
   state() {
     return {
       meetups: []
     }
   },
+
   mutations: {
     setMeetups(state, meetups) {
       state.meetups = meetups
     },
     ...vuexfireMutations,
-    
   },
+
   actions: {
     bindmeetups: firestoreAction(({
       bindFirestoreRef
