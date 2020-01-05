@@ -26,7 +26,10 @@ const actions = {
    },
    login(_, { email, password }) {
       return firebase.auth().signInWithEmailAndPassword(email, password)
-   }
+   },
+   singOut() {
+      return firebase.auth().signOut()
+   },
 }
 const mutations = {
    setAuthUser(state, user) {

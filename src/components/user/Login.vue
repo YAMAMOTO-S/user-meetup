@@ -10,9 +10,9 @@
                </v-img>
                <h2 class="title">Login</h2>
 
-               <figure class="avatar">
+               <!-- <figure class="avatar">
                      <img src="https://placehold.it/128x128">
-               </figure>
+               </figure> -->
 
                <form @submit.prevent="login">
                   <v-text-field label="Email" name="email" required 
@@ -21,7 +21,7 @@
                   <v-text-field label="Password" name="password" required 
                   v-model="form.password">
                   </v-text-field>
-                  
+                  <br>
                   <div class="subbtn">
                      <v-btn type="submit">Login</v-btn>
                   </div>
@@ -41,15 +41,10 @@ export default {
             email: null,
             password: null,
          },
-         imageUrl: 'https://image.freepik.com/free-vector/social-media-refer-friend-concept_23-2148260460.jpg',
+         imageUrl: 'https://image.freepik.com/free-vector/desert-landscape-with-army-cacti_23-2148269226.jpg',
       }
    },
    computed: {
-      formIsValid(){
-         // 全て埋めないと浮き出ない用になっている
-         return this.email !== '' 
-         && this.password !== ''
-      }
    },
    methods: {
    //ログイン

@@ -5,7 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import Toasted from 'vue-toasted';
 
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 
 Vue.use(Toasted);

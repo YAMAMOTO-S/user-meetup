@@ -8,8 +8,11 @@
             class="grey lighten-2"
             max-height="500">
             <v-container class="middletext">
-               <div  class="title">
+            <!-- <div  class="title">
                <h1 class="font-weight-black" color="#EEF9FF">Let's meet up !!</h1>
+            </div> -->
+            <div class="title">
+               <h1>Lets meet up</h1>
             </div>
             <div  class="firstbtn">
                <v-btn color="#FC9D9D" class="white--text" to="/meetups">CLICK HERE !!</v-btn>
@@ -58,18 +61,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .title{
-   text-align: center;
-   color: aliceblue;
-   margin: 100px;
-   font-size: 300px;
+   color: #EEF9FF
 }
 .firstbtn{
   text-align:center;
 }
 .middletext{
    margin: auto;
-   margin-top: 40px;
+   margin-top: 80px;
 }
 </style>
