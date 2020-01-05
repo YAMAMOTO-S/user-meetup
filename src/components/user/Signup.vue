@@ -31,8 +31,10 @@
                   <v-text-field label="Avatar Url" name="avatar" required 
                   v-model="form.avatar">
                   </v-text-field>
+                  <v-textarea label="your description for profile page"
+                  v-model="form.description" name="description">
+                  </v-textarea>
                   
-                  <!-- 全て入れないとボタンが浮き出ないようにしている。 -->
                   <div class="subbtn">
                      <v-btn :disabled="!formIsValid" type="submit">Create</v-btn>
                   </div>
@@ -55,6 +57,7 @@ export default {
             name: null,
             feedback: null,
             avatar: '',
+            description: ''
          },
          imageUrl: 'https://image.freepik.com/free-vector/social-media-refer-friend-concept_23-2148260460.jpg',
       }
@@ -74,10 +77,12 @@ export default {
                await this.$store
                   .dispatch('auth/createProfile', 
                      {uid: user.uid, 
+                     // ここにUser情報を全て入れる
                       userProfile: {
                          fullName: this.form.name,
                          avatar: this.form.avatar,
-                         user: user.uid
+                         user: user.uid,
+                         description: this.form.description
                       }})
 
                this.$router.push({ name: "login"})

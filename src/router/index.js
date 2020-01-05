@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Meetups from '@/components/Meetups'
 import Signup from '@/components/user/Signup'
 import Login from '@/components/user/Login'
+import Profile from '@/components/user/Profile'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/users/me',
+    name: 'Profile',
+    component: Profile
   }
 ]
 

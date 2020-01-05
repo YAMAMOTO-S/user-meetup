@@ -24,6 +24,7 @@ export default new Vuex.Store({
   },
 
   actions: {
+    // Meetupをとってくる
     bindmeetups: firestoreAction(({
       bindFirestoreRef
     }) => {

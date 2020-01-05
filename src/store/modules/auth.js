@@ -27,8 +27,11 @@ const actions = {
    login(_, { email, password }) {
       return firebase.auth().signInWithEmailAndPassword(email, password)
    },
-   singOut() {
+   singOut({commit}) {
       return firebase.auth().signOut()
+         .then(() => {
+            commit('setAuthUser', null);
+         })
    },
 }
 const mutations = {
