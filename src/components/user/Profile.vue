@@ -1,39 +1,39 @@
 <template>
    <v-container>
       <v-row align="center" justify="center">
-         <v-col col="12" md="4">
+         <v-col cols="12" md="4">
             <br><br>
             <figure class="avatar">
                   <img src="https://placehold.it/128x128">
             </figure>
          </v-col>
-         <v-col col="12" md="4" lg="3">
+         <v-col cols="12" md="4" lg="4">
             <v-card-text >
-               <v-card-title>Yourname</v-card-title>
+               <v-card-title>Name</v-card-title>
                this is a place for description.
             </v-card-text>
          </v-col>
       </v-row>
-      <!-- <br><br> -->
+      <br><br>
 
       <v-row>
-         <v-col cols="12" lg="4" xs="12">
+         <v-col cols="12" lg="4" md="4" xs="12">
             <v-card>
-               <v-card-title>test</v-card-title>
+               <v-card-title>Meetup</v-card-title>
                
             </v-card>
          </v-col>
 
-         <v-col cols="12" lg="4" xs="12">
+         <v-col cols="12" lg="4" md="4" xs="12">
             <v-card>
-               <v-card-title>test</v-card-title>
+               <v-card-title>Meetup</v-card-title>
                
             </v-card>
          </v-col>
 
-         <v-col cols="12" lg="4" xs="12">
+         <v-col cols="12" lg="4" md="4" xs="12">
             <v-card>
-               <v-card-title>test</v-card-title>
+               <v-card-title>Meetup</v-card-title>
                
             </v-card>
          </v-col>
