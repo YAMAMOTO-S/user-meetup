@@ -5,6 +5,8 @@ import Meetups from '@/components/Meetups'
 import Signup from '@/components/user/Signup'
 import Login from '@/components/user/Login'
 import Profile from '@/components/user/Profile'
+import UserUpdate from '@/components/user/UserUpdate'
+
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -50,6 +52,15 @@ const routes = [
     component: Profile,
     // 承認ユーザーだけ
     meta: {onlyAuthUser: true}
+  },
+  {
+    path: '/users/me/edit',
+      name: 'edit',
+      component: UserUpdate,
+      // 承認ユーザーだけ
+      meta: {
+        onlyAuthUser: true
+      }
   }
 ]
 

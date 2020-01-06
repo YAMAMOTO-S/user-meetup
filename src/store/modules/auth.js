@@ -33,6 +33,17 @@ const actions = {
             commit('setAuthUser', null);
          })
    },
+   getAuthUser({commit}, user) {
+      return db.collection('profiles').
+         doc(user.uid)
+         .get()
+         .then(snapshot => {
+            const profile = snapshot.data()
+            user.profile = profile
+            commit('setAuthUser', user)
+            return profile
+         })
+   }
 }
 const mutations = {
    setAuthUser(state, user) {

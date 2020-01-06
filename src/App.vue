@@ -15,7 +15,7 @@
             <v-btn text to="/meetups" color="#EEF9FF">MEETUPS</v-btn>
             <v-btn text to="/create" color="#EEF9FF" v-if="isAuthenticated">Create</v-btn>
             <v-btn text to="/chat" color="#EEF9FF" v-if="isAuthenticated">chat</v-btn>
-            <v-btn text to="/Profile" color="#EEF9FF" v-if="isAuthenticated">Profile</v-btn>
+            <v-btn text to="/users/me" color="#EEF9FF" v-if="isAuthenticated">Profile</v-btn>
             <v-btn text to="/signup" color="#EEF9FF" v-if="!isAuthenticated">signup</v-btn>
             <v-btn text to="/login" color="#EEF9FF" v-if="!isAuthenticated">login</v-btn>
             <v-btn text @click="$store.dispatch('auth/singOut')" color="#EEF9FF" v-if="isAuthenticated">LOGOUT</v-btn>

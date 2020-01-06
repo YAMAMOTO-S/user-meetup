@@ -12,12 +12,13 @@ Vue.use(Toasted);
 Vue.config.productionTip = false
 
 let app;
-firebase.auth().onAuthStateChanged(user => {
-  
+firebase.auth().onAuthStateChanged(async user => {
   if (user) {
     // auth前にあった空白でハマッた
-    store.commit("auth/setAuthUser", user)
+    // UserProfileをFBから持ってくる
+    await store.dispatch("auth/getAuthUser", user)
   }
+  
   if (!app) {
     app = new Vue({
       router,
