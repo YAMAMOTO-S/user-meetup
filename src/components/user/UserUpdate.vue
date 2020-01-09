@@ -3,15 +3,15 @@
       <v-row>
 
          <v-col class="mx-auto" cols="12" md="9" sm="9">
-            <form @submit.prevent="">
+            <form @submit.prevent="submitModal">
 
                <h2 class="title">Change your infomation</h2>
                <br>
-               <v-text-field label="Name" name="name" required v-model="userProfile.fullName">
+               <v-text-field label="Name" name="name" required v-model="profileUpdate.fullName">
                </v-text-field>
-               <v-text-field label="Avatar" name="avatar" required v-model="userProfile.avatar">
+               <v-text-field label="Avatar" name="avatar" required v-model="profileUpdate.avatar">
                </v-text-field>
-               <v-textarea label="Description" name="description" required v-model="userProfile.description">
+               <v-textarea label="Description" name="description" required v-model="profileUpdate.description">
                </v-textarea>
 
                <div class="subbtn">
@@ -27,14 +27,19 @@
 
 <script>
 export default {
-   props: ["userProfile"],
+   props: ["userProfile", "onModalSubmit"],
 
    data(){
       return {
+         profileUpdate: {
+            ...this.userProfile
+         }
       }
    },
-   computed: {
-      
+   methods: {
+      submitModal(){
+         this.onModalSubmit({...this.profileUpdate})
+      }
    }
 }   
 </script>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as firebase from 'firebase'
 import { db } from '@/db'
 
@@ -43,6 +44,15 @@ const actions = {
             commit('setAuthUser', user)
             return profile
          })
+   },
+   // プロファイルの更新
+   updateInfo({commit}, profile) {
+      return db.collection('profiles')
+         .doc(profile.user)
+         .update(profile)
+         .then(() => {
+         // commit change to store
+      })
    }
 }
 const mutations = {

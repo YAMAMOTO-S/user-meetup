@@ -6,11 +6,10 @@
             <figure class="avatar">
                   <img src="https://placehold.it/128x128">
             </figure>
-            <!-- <v-btn :to="{name: 'edit'}" :userProfile="user.profile">edit</v-btn> -->
          </v-col>
          <v-col cols="12" md="4" lg="4">
             <v-card-text >
-               <v-card-title>name
+               <v-card-title>{{user.profile.fullName}}
                   <v-btn
                      color="#AAD6EC"
                      depressed
@@ -22,7 +21,10 @@
                   </v-btn>
                   <v-dialog v-model="dialog" max-width="1000">
                      <v-card>
-                     <edit :userProfile="user.profile" />
+                     <!-- UserUpdate.vueを表示 -->
+                     <edit 
+                        :userProfile="user.profile" 
+                        :onModalSubmit="updateProfile"/>
                      </v-card>
                   </v-dialog>
                </v-card-title>
@@ -54,21 +56,6 @@
                
             </v-card>
          </v-col>
-<!-- 編集のdialog -->
-         <!-- <v-btn
-         color="primary"
-         dark
-         @click.stop="dialog = true"
-         >
-         OPEN
-         </v-btn>
-         <v-dialog v-model="dialog" max-width="1000">
-            <v-card>
-            <edit :userProfile="user.profile" />
-            </v-card>
-         </v-dialog> -->
-
-         
       </v-row>
    </v-container>
 </template>
@@ -88,6 +75,20 @@ export default {
    data(){
       return {
          dialog: false,
+      }
+   },
+   methods: {
+      updateProfile(profile){
+         // updateInfoを持ってくる
+         this.$store.dispatch('auth/updateInfo', profile)
+            .then(() => {
+               this.dialog = false
+               this.$toasted.show("Success!!", { 
+                     theme: "toasted-primary",
+                     position: "top-center", 
+                     duration : 5000
+                  });
+            })
       }
    }
 }
