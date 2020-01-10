@@ -4,7 +4,8 @@
          <v-col cols="12" md="4">
             <br><br>
             <figure class="avatar">
-                  <img src="https://placehold.it/128x128">
+                  <img :src="user.profile.avatar">
+                  <!-- https://placehold.it/128x128 -->
             </figure>
          </v-col>
          <v-col cols="12" md="6" lg="6">
@@ -28,7 +29,9 @@
                      </v-card>
                   </v-dialog>
                </v-card-title>
-               this is a place for description.
+               <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
+                  <div>{{ user.profile.description }}</div>
+               </v-card-text>
             </v-card-text>
          </v-col>
       </v-row>
