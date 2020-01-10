@@ -51,13 +51,17 @@ const actions = {
          .doc(profile.user)
          .update(profile)
          .then(() => {
-         // commit change to store
+            commit('setUserProfile', profile)
+            return true
       })
    }
 }
 const mutations = {
    setAuthUser(state, user) {
       state.user = user
+   },
+   setUserProfile(state, profile) {
+      state.user.profile = profile
    }
 }
 

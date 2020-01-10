@@ -7,7 +7,7 @@
                   <img src="https://placehold.it/128x128">
             </figure>
          </v-col>
-         <v-col cols="12" md="4" lg="4">
+         <v-col cols="12" md="6" lg="6">
             <v-card-text >
                <v-card-title>{{user.profile.fullName}}
                   <v-btn
@@ -28,7 +28,6 @@
                      </v-card>
                   </v-dialog>
                </v-card-title>
-
                this is a place for description.
             </v-card-text>
          </v-col>
@@ -106,6 +105,6 @@ export default {
     box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
   }
   .editbtn{
-     margin-left: 50px;
+     margin-left: 20px;
   }
 </style>
