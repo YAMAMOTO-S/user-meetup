@@ -64,15 +64,6 @@ const routes = [
       }
   },
   {
-    path: '/users/me/edit',
-    name: 'edit',
-    component: UserUpdate,
-    // 承認ユーザーだけ
-    meta: {
-      onlyAuthUser: true
-    }
-  },
-  {
     path: '/create',
     name: 'create',
     component: Create,
