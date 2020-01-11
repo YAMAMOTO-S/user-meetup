@@ -48,6 +48,8 @@
 </template>
 
 <script>
+
+
 export default {
    data(){
       return {
@@ -66,8 +68,12 @@ export default {
    },
    methods: {
       createMeetup(){
-         alert(JSON.stringify(this.form))
+         this.$store.dispatch('createMeetup', {...this.form})
+            .then(() => this.$router.push({name: 'home'}))
+            .catch(err => {
+               console.log(err)
+            })
       },
-   }
+   },
 }
 </script>
