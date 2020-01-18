@@ -13,7 +13,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state() {
     return {
-      meetups: []
+      meetups: [],
+      meetup: []
     }
   },
 
@@ -21,10 +22,25 @@ export default new Vuex.Store({
     setMeetups(state, meetups) {
       state.meetups = meetups
     },
+    setMeetup(state, meetup) {
+      state.meetup = meetup
+    },
     ...vuexfireMutations,
   },
 
+
   actions: {
+// 個別のMeetup入手
+    getMeetup({commit}, meetupId) {
+      return db.collection('meetups')
+        .doc(meetupId)
+        .get()
+        .then(snapshot => {
+          const meetup = snapshot.data()
+          commit('setMeetup', meetup)
+          return meetup
+        }) 
+    },
     // Meetupをとってくる
     bindmeetups: firestoreAction(({
       bindFirestoreRef
@@ -32,7 +48,6 @@ export default new Vuex.Store({
       // return the promise returned by `bindFirestoreRef`
       return bindFirestoreRef('meetups', db.collection('meetups'))
     }),
-
     createMeetup({ rootState }, meetup) {
       // 現在のUserを取得
       const userRef = db.collection('profiles').doc(rootState.auth.user.uid)

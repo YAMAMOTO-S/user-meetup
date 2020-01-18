@@ -69,7 +69,14 @@ export default {
    methods: {
       createMeetup(){
          this.$store.dispatch('createMeetup', {...this.form})
-            .then(() => this.$router.push({name: 'home'}))
+            .then(() => 
+            this.$router.push({name: 'home'}),
+            this.$toasted.show("Success!!", { 
+                  theme: "toasted-primary",
+                  position: "top-center", 
+                  duration : 5000
+               })
+            )
             .catch(err => {
                console.log(err)
             })

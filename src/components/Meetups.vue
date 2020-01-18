@@ -10,7 +10,7 @@
                <v-img
                   class="white--text align-end"
                   height="300px"
-                  :src="meetup.image"
+                  :src="meetup.imageUrl"
                >
                   <v-card-title>{{ meetup.title }}</v-card-title>
                </v-img>
@@ -23,10 +23,10 @@
 
                <v-card-actions>
                   <!-- 個別のページに行く -->
-                  <!-- <v-btn depressed :to="{ name: 'Meetup', params: {meetup_slug: meetup.slug}}">
+                  <v-btn depressed :to="{ name: 'MeetupDetail', params: {id: meetup.id}}">
                      View Detail
                   </v-btn>
-                  <! 削除 -->
+                  
                   <!-- <v-btn depressed @click="deleteMeetup(meetup.id)">
                      <v-icon>mdi-delete</v-icon>
                   </v-btn> -->

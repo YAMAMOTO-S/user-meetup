@@ -7,6 +7,7 @@ import Login from '@/components/user/Login'
 import Profile from '@/components/user/Profile'
 import UserUpdate from '@/components/user/UserUpdate'
 import Create from '@/components/CreateMeet'
+import Detail from '@/components/Detail'
 
 
 import firebase from 'firebase/app'
@@ -71,6 +72,11 @@ const routes = [
     meta: {
       onlyAuthUser: true
     }
+  },
+  {
+    path: '/meetups/:id',
+    name: 'MeetupDetail',
+    component: Detail,
   }
 ]
 
