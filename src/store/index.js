@@ -35,8 +35,10 @@ export default new Vuex.Store({
       return db.collection('meetups')
         .doc(meetupId)
         .get()
-        .then(snapshot => {
+        .then(async snapshot => {
           const meetup = snapshot.data()
+          const userSnapshot = await meetup.user.get()
+          meetup.profile = userSnapshot.data()
           commit('setMeetup', meetup)
           return meetup
         }) 

@@ -5,7 +5,6 @@
             <br><br>
             <figure class="avatar">
                   <img :src="user.profile.avatar">
-                  <!-- https://placehold.it/128x128 -->
             </figure>
          </v-col>
          <v-col cols="12" md="6" lg="6">

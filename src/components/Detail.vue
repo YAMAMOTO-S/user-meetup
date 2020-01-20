@@ -11,22 +11,48 @@
                   :src="meetup.imageUrl"
                   >
                   </v-img>
-                  <br> 
-                  <p class="display-1 text--primary">
-                     {{ meetup.title}}
-                  </p>
-                  <div class="text--primary">
-                  {{ meetup.description}}
-                  </div>
+                  <br>
+                  <v-list>
+          <v-list-item >
+            <v-list-item-content>
+              <v-list-item-title>
+                 <v-icon>mdi-map-marker</v-icon>
+                  {{meetup.city}}, {{meetup.country}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
 
+            <v-divider></v-divider>
+
+            <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title style="white-space:pre-wrap; word-wrap:break-word;">
+                 <v-icon>mdi-file-document</v-icon>   
+                 {{meetup.description}}
+               </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider ></v-divider>
+
+          <v-list-item >
+            <v-list-item-content>
+              <v-list-item-title><v-icon>mdi-clock-outline</v-icon>  {{meetup.date}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+
+          <v-list-item >
+            <v-list-item-content>
+              <v-list-item-title><v-icon>mdi-account</v-icon> {{meetup.profile.fullName}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+        </v-list>
+                 
                </v-card-text>
                <v-card-actions>
                   <v-btn depressed>
                   <v-icon left>mdi-cards-heart</v-icon>   
                   Register
-                  </v-btn>
-                  <v-btn depressed :to="{ name: 'EditMeetup', params: {meetup_slug: meetup.slug}}">
-                     <v-icon>mdi-pencil</v-icon>
                   </v-btn>
                </v-card-actions>
 
@@ -48,7 +74,7 @@ export default {
    computed: {
       meetup() {
          return this.$store.state.meetup
-      }
+      },
    },
    created(){
       const { id } = this.$route.params
