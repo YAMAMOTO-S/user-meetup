@@ -1,14 +1,13 @@
 <template>
-
-
-    <v-container>
+    <v-container fluid>
       <v-row align="center" justify="center">
          <v-col cols="12" md="12" lg="12">
             <v-img
                :src="topImage"
                aspect-ratio="1"
                class="grey lighten-2"
-               max-height="500">
+               max-height="500"
+               >
                <v-container class="middletext">
                   <br>
                <div class="title">
@@ -44,11 +43,8 @@
                <v-card-title>TEST</v-card-title>
             </v-card>
          </v-col>
-         
-      
       </v-row>
-    </v-container>
-
+</v-container>
       
     
 
