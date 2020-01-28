@@ -47,14 +47,13 @@ export default new Vuex.Store({
     bindmeetups: firestoreAction(({
       bindFirestoreRef
     }) => {
-      // return the promise returned by `bindFirestoreRef`
       return bindFirestoreRef('meetups', db.collection('meetups'))
     }),
+    
     createMeetup({ rootState }, meetup) {
       // 現在のUserを取得
       const userRef = db.collection('profiles').doc(rootState.auth.user.uid)
-      meetup.user = userRef
-      
+      meetup.user = userRef 
       return db.collection('meetups').add(meetup)
     }
   },

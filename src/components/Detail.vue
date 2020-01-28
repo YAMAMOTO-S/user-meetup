@@ -48,13 +48,12 @@
           <v-divider></v-divider>
         </v-list>
                  
-               </v-card-text>
-               <v-card-actions>
-                  <v-btn depressed>
-                  <v-icon left>mdi-cards-heart</v-icon>   
-                  Register
-                  </v-btn>
-               </v-card-actions>
+         </v-card-text>
+         <v-card-actions>       
+            <v-btn depressed :to="{ name: 'Meetups'}">
+               Back
+            </v-btn>
+         </v-card-actions>
 
             </v-card>
          </v-col>
@@ -63,7 +62,6 @@
 </template>
 
 <script>
-
 
 export default {
    data(){
@@ -80,6 +78,9 @@ export default {
       const { id } = this.$route.params
       this.$store.dispatch('getMeetup', id)
    },
+   methods: {
+      
+   }
 
 }
 </script>

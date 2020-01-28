@@ -51,20 +51,10 @@
                   
                </v-list>
 
-               <v-card-actions>
-                  <!-- 個別のページに行く -->
+               <v-card-actions>       
                   <v-btn depressed :to="{ name: 'MeetupDetail', params: {id: meetup.id}}">
                      View Detail
                   </v-btn>
-                  
-                  <!-- <v-btn depressed @click="deleteMeetup(meetup.id)">
-                     <v-icon>mdi-delete</v-icon>
-                  </v-btn> -->
-                  <!-- 編集 -->
-                  <!-- <v-btn depressed :to="{ name: 'EditMeetup', params: {meetup_slug: meetup.slug}}">
-                     <v-icon>mdi-pencil</v-icon>
-                  </v-btn> --> -->
-                  
                </v-card-actions>
             </v-card>
          </v-col>
@@ -75,6 +65,12 @@
 <script>
 
 export default {
+   data(){
+      return {
+         num: 0
+      }
+   },
+
    created(){
       this.$store.dispatch('bindmeetups')
    },
@@ -82,7 +78,7 @@ export default {
       meetups() {
          return this.$store.state.meetups
       }
-   }
+   },
 }
 </script>
 
